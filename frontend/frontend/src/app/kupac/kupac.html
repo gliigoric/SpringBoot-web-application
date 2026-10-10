@@ -1,0 +1,21 @@
+<h3>Zdravo, {{kupac}}</h3>
+<h3>Izaberite tip palacinke: </h3>
+<button (click)="show(0)">Slana</button>
+<button (click)="show(1)">Slatka</button>
+<button (click)="show(2)">Prazna</button>
+<br>
+
+@if(this.showComponent != -1){
+    @if(this.showComponent != -2){
+        @for(d of dodaci; track d.id){
+        {{d.naziv}} <input type="checkbox" [(ngModel)]="d.izabran">
+        <br>
+        }
+        @if(this.showComponent == 0){
+            pohovana <input type="checkbox" [(ngModel)]="pohovana">
+            <br>
+        }
+    }
+
+    <button (click)="naruci()">Naruci</button>
+}

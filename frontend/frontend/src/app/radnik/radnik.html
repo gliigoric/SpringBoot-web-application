@@ -1,0 +1,92 @@
+<h3>Zdravo, {{radnik}}</h3>
+<table>
+     @for(n of sveNarudzbine; track n.id){
+            <tr [class.status]="n.status == 'nova'">
+            <th>ID</th>
+            <td>{{n.id}}</td>
+            <th>Korisnik</th>
+            <td>{{n.korisnik}}</td>
+            <th>Dodaci</th>
+            <td>{{n.dodaci}}</td>
+            <th>Pohovana</th>
+            @if(n.pohovana){
+                <td>da</td>
+            }@else {
+                <td>ne</td>
+            }
+            <th>Status</th>
+            <td>{{n.status}}</td>
+            @if(n.status == "nova"){
+                <button (click)="prihvati(n)">Prihvati</button>
+                <button (click)="odbij(n.id)">Odbij</button>
+            }
+            </tr>
+        }
+</table>
+<br>
+<br>
+<table>
+     @for(n of dodaciSlane; track n.id){
+            <tr>
+            <th>ID</th>
+            <td>{{n.id}}</td>
+            <th>Tip</th>
+            <td>{{n.tip}}</td>
+            <th>Naziv</th>
+            <td>{{n.naziv}}</td>
+            <th>Na zalihama</th>
+            @if(n.na_zalihama){
+                <td>da</td>
+            }@else {
+                <td>ne</td>
+            }
+            
+            <button (click)="obrisi(n)">Obrisi</button>
+            <button (click)="nestasica(n)">Nestasica</button>
+            <button (click)="dopuna(n)">Dopuna</button>
+            </tr>
+        }
+
+        @for(n of dodaciSlatke; track n.id){
+            <tr>
+            <th>ID</th>
+            <td>{{n.id}}</td>
+            <th>Tip</th>
+            <td>{{n.tip}}</td>
+            <th>Naziv</th>
+            <td>{{n.naziv}}</td>
+            <th>Na zalihama</th>
+            @if(n.na_zalihama){
+                <td>da</td>
+            }@else {
+                <td>ne</td>
+            }
+            <button (click)="obrisi(n)">Obrisi</button>
+            <button (click)="nestasica(n)">Nestasica</button>
+            <button (click)="dopuna(n)">Dopuna</button>
+            </tr>
+        }
+</table>
+<br>
+<h3>Dodajte novi dodatak:</h3>
+<input type="text" [(ngModel)]="noviDodatak">
+<select [(ngModel)]="tipDodatka">
+<option type="text" value="">Slatka</option>
+<option type="text" value="slana">Slana</option>
+</select>
+<button (click)="dodajDodatak()">Dodaj</button>
+<br>
+<h3>Dodajte novog radnika</h3>
+<form>
+    Ime: <input type="text" [(ngModel)] = "ime" name = "ksa">
+    <br>
+    Prezime: <input type="text" [(ngModel)] = "prezime" name = "ksa">
+    <br>
+    email: <input type="email" [(ngModel)] = "email" name = "ksa">
+    <br>
+    Korisnicko ime: <input type="text" [(ngModel)] = "korisnicko_ime" name = "ksa">
+    <br>
+    Lozinka: <input type = "text" [(ngModel)] = "password" name = "qwijkoew">
+    <button (click) = register()>Registruj</button>
+    <p style = "color: red">{{this.message}}</p>
+</form>

@@ -1,0 +1,283 @@
+/* Palacinkarnica Palacinkica - globalni stilovi (src/styles.css) */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --testo: #fff8ec;        /* pozadina, boja testa */
+  --krem: #ffffff;
+  --puter: #ffe9a8;        /* zuta, nove narudzbine */
+  --puter-tamna: #f6d77a;
+  --jagoda: #ffc9d4;       /* roze */
+  --jagoda-tamna: #f7a8b8;
+  --menta: #c8ecd9;        /* zelena */
+  --menta-tamna: #a3dcc0;
+  --karamel: #e8b98a;
+  --karamel-tamna: #d9a06a;
+  --cokolada: #5b3a29;     /* tekst */
+  --cokolada-svetla: #8a6a58;
+  --ivica: #f1e2cc;
+  --senka: 0 6px 18px rgba(91, 58, 41, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--testo);
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(255, 201, 212, 0.35) 0, transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(200, 236, 217, 0.35) 0, transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(255, 233, 168, 0.45) 0, transparent 40%);
+  background-attachment: fixed;
+  color: var(--cokolada);
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+app-root {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  text-align: center;
+}
+
+/* ---------- Naslovi ---------- */
+
+h2, h3, h4 {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  color: var(--cokolada);
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-top: 8px;
+  padding-bottom: 12px;
+  border-bottom: 3px dashed var(--karamel);
+}
+
+h2::before {
+  content: "\1F95E  ";   /* palacinke */
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 28px;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cokolada-svetla);
+  margin-top: 16px;
+}
+
+/* ---------- Forme (prijava, registracija, novi radnik) ---------- */
+
+form {
+  max-width: 380px;
+  margin: 20px auto;
+  padding: 24px;
+  background: var(--krem);
+  border: 1px solid var(--ivica);
+  border-radius: 20px;
+  box-shadow: var(--senka);
+  text-align: left;
+  font-weight: 600;
+  color: var(--cokolada-svetla);
+}
+
+form br {
+  display: none;
+}
+
+form p {
+  margin: 12px 0 0;
+  min-height: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- Polja za unos ---------- */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  padding: 10px 14px;
+  margin: 4px 6px 4px 0;
+  border: 2px solid var(--ivica);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: var(--cokolada);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+  border-color: var(--karamel);
+  box-shadow: 0 0 0 4px rgba(232, 185, 138, 0.30);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+  display: block;
+  width: 100%;
+  margin: 4px 0 14px;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 8px 0 8px 8px;
+  vertical-align: middle;
+  accent-color: var(--jagoda-tamna);
+  cursor: pointer;
+}
+
+/* ---------- Dugmad ---------- */
+
+button {
+  padding: 10px 20px;
+  margin: 4px;
+  border: none;
+  border-radius: 999px;
+  background: var(--karamel);
+  color: var(--cokolada);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--karamel-tamna);
+  transition: transform 0.1s, box-shadow 0.1s, filter 0.15s;
+}
+
+button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  margin: 6px 0 0;
+  padding: 12px;
+}
+
+/* Logout - u gornjem desnom uglu na svakoj strani */
+router-outlet ~ button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--jagoda);
+  box-shadow: 0 3px 0 var(--jagoda-tamna);
+  z-index: 10;
+}
+
+/* ---------- Tabele (radnik) ---------- */
+
+table {
+  width: 100%;
+  margin: 16px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--krem);
+  border: 1px solid var(--ivica);
+  border-radius: 18px;
+  box-shadow: var(--senka);
+  overflow: hidden;
+  text-align: left;
+}
+
+tr:not(:last-child) th,
+tr:not(:last-child) td {
+  border-bottom: 1px solid var(--ivica);
+}
+
+tr:hover {
+  background: #fffaf0;
+}
+
+th {
+  padding: 12px 4px 12px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cokolada-svetla);
+  white-space: nowrap;
+}
+
+td {
+  padding: 12px 12px 12px 4px;
+  font-weight: 600;
+}
+
+/* Nove narudzbine - zuto */
+tr.status,
+tr.status:hover {
+  background: var(--puter);
+}
+
+table button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+/* Prva tabela (narudzbine): Prihvati / Odbij */
+table:first-of-type tr button:nth-of-type(1) {
+  background: var(--menta);
+  box-shadow: 0 3px 0 var(--menta-tamna);
+}
+
+table:first-of-type tr button:nth-of-type(2) {
+  background: var(--jagoda);
+  box-shadow: 0 3px 0 var(--jagoda-tamna);
+}
+
+/* Druga tabela (dodaci): Obrisi / Nestasica / Dopuna */
+table:nth-of-type(2) tr button:nth-of-type(1) {
+  background: var(--jagoda);
+  box-shadow: 0 3px 0 var(--jagoda-tamna);
+}
+
+table:nth-of-type(2) tr button:nth-of-type(2) {
+  background: var(--puter);
+  box-shadow: 0 3px 0 var(--puter-tamna);
+}
+
+table:nth-of-type(2) tr button:nth-of-type(3) {
+  background: var(--menta);
+  box-shadow: 0 3px 0 var(--menta-tamna);
+}
+
+/* ---------- Manji ekrani ---------- */
+
+@media (max-width: 700px) {
+  h2 {
+    font-size: 1.7rem;
+    margin-top: 48px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}

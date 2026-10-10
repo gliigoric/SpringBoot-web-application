@@ -1,0 +1,33 @@
+<h2>Palacinkarnica Palacinkica</h2>
+@if(this.showForm){
+<h4>Prijavite se</h4>
+<form>
+    Korisnicko ime: <input type="text" [(ngModel)] = "korisnicko_ime" name = "ksa">
+    <br>
+    Lozinka: <input type = "text" [(ngModel)] = "password" name = "qwijkoew">
+    <select [(ngModel)] = "option" name = "jssa">
+        <option value="">kupac</option>
+        <option value="radnik">radnik</option>
+    </select>
+    <button (click) = login()>Login</button>
+    <p style = "color: red">{{this.message}}</p>
+</form>
+<h4>Registrujte se</h4>
+<form>
+    Ime: <input type="text" [(ngModel)] = "ime" name = "ksa">
+    <br>
+    Prezime: <input type="text" [(ngModel)] = "prezime" name = "ksa">
+    <br>
+    email: <input type="email" [(ngModel)] = "email" name = "ksa">
+    <br>
+    Korisnicko ime: <input type="text" [(ngModel)] = "_korisnicko_ime" name = "ksa">
+    <br>
+    Lozinka: <input type = "text" [(ngModel)] = "_password" name = "qwijkoew">
+    <button (click) = register()>Registruj se</button>
+    <p style = "color: red">{{this._message}}</p>
+</form>
+}
+<router-outlet></router-outlet>
+@if(logged){
+<button (click)="logout()">Logout</button>
+}
