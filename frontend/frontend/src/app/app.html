@@ -4,7 +4,7 @@
 <form>
     Korisnicko ime: <input type="text" [(ngModel)] = "korisnicko_ime" name = "ksa">
     <br>
-    Lozinka: <input type = "text" [(ngModel)] = "password" name = "qwijkoew">
+    Lozinka: <input type = "password" [(ngModel)] = "password" name = "qwijkoew">
     <select [(ngModel)] = "option" name = "jssa">
         <option value="">kupac</option>
         <option value="radnik">radnik</option>
@@ -22,7 +22,7 @@
     <br>
     Korisnicko ime: <input type="text" [(ngModel)] = "_korisnicko_ime" name = "ksa">
     <br>
-    Lozinka: <input type = "text" [(ngModel)] = "_password" name = "qwijkoew">
+    Lozinka: <input type = "password" [(ngModel)] = "_password" name = "qwijkoew">
     <button (click) = register()>Registruj se</button>
     <p style = "color: red">{{this._message}}</p>
 </form>
